@@ -1,0 +1,24 @@
+
+<div class="background">
+  <div class="container">
+    <h1>Top News</h1>
+    
+    
+  <% @element_img.zip(@element_text,@element_url).each do |element_img,element_text,element_url| %>
+    <div class="content_link">
+      <%= link_to element_url[:href] do %> 
+        <div class="content_img">
+           <img src="<%= element_img.get_attribute('src') %>"　width="150" height="150" >
+        </div>
+        
+        <div class="content_text">
+          <br><%= element_text.inner_text %>
+        </div>
+        
+        <% end %>
+  
+    </div>
+        
+    <% end %>
+  </div>
+</div>

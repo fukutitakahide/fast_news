@@ -1,15 +1,179 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+
+/* --- Common --- */
+
+a{
+ text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+
+body{
+  margin:0;
+}
+
+.flash{
+  text-align: center;
+}
+
+/* --- Common END --- */
+
+/* --- Header --- */
+
+.header-rogo a{
+    color:white;
+    margin-top: 100px;
+}
+
+.header-rogo h1{
+    background-color:#00c4ff;
+    height:100px;
+    padding-top:20px;
+    color: white;
+    padding-left: 100px;
+}
+
+.header-menu ul{
+    display:flex;
+    justify-content: flex-end;
+    background-color: royalblue;
+}
+
+.header-menu ul a{
+    color:white;
+    padding-right: 20px;
+}
+
+/* --- Header END --- */
+
+
+/* --- Container --- */
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-color: azure;
+    
+}
+
+.container h1,.form-header h1{
+  font-size:3em;
+  padding-top: 10px;
+  text-align:center;
+  line-height:0.95em;
+  font-weight:bold;
+  color: cadetblue;
+  font-family: serif;
+}
+
+.form-container{
+  margin-left:30%;
+  font-size: larger;
+}
+
+.form-container ul{
+  margin-top:50px;
+}
+
+.form-container ul li,.form-container p{
+   padding:10px;
+}
+
+.check_box{
+  padding:10px;
+}
+
+input[type=checkbox] {
+  transform: scale(1.5);
+}
+
+.background{
+  background-image:url('english.jpg');
+  background-repeat: repeat;
+}
+
+/*index show*/
+
+.content_link{
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.content_text{
+  display: inline;
+  color: dimgrey;
+}
+
+.content_text:hover {
+  color: #fff;
+  background: #00b5ad;
+}
+
+.content_img img{
+  width:150px;
+}
+
+.content_img{
+  width:150px;
+  display:inline-block;
+}
+
+/*index show END*/
+
+/* new */
+
+.form_control{
+  box-sizing: border-box;
+  height: 30px;
+  padding: 0 10px;
+  margin: 5px 0;
+  font-size: 16px;
+  color: #333;
+  border: solid 1px #ccc;
+  border-radius: 6px;
+  outline: 0;
+  transition: 0.3s;
+  -webkit-appearance: none;
+}
+
+.form_control:focus {
+  border: 1px solid #00b5ad;
+}
+
+label ,.form-container p,.check_box{
+  color:gray;
+}
+
+.button-1 {
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  color: #00b5ad;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #00b5ad solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+
+.button-1:hover {
+  color: #fff;
+  background: #00b5ad;
+}
+
+.form-button{
+  padding-bottom:100px;
+}
+
+.form-error{
+  margin-left: 30%;
+  font-size: larger;
+  color: gray;
+}
+/* new END */
+
+/* --- Container END --- */
+
+/*----------- Login ------------*/
+

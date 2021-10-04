@@ -5,11 +5,44 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    
   </head>
-
   <body>
-    <%= yield %>
-  </body>
-</html>
+  
+      <header>
+        <div class="header-nav">
+          <div class="header-rogo">
+
+              <h1><%= link_to("Fast_News","/") %></h1>
+           
+          </div>
+          
+         <div class="header-menu">
+            <ul>
+              <% if session[:user_id] %>
+                <li><%= link_to("マイページ","/users/#{@user.id}") %></li>
+                <li><%= link_to("ログアウト", "/logout",{method: :post}) %></li>
+                <li><%= link_to("登録内容変更", "/users/#{@user.id}/edit") %></li>
+                <li><%= link_to('登録内容削除', "/users/#{@user.id}/destroy", {method: "post"}) %></li>
+              <% else %>
+                <li><%= link_to("会員登録","/users/new") %></li>
+                <li><%= link_to("ログイン","/login") %></li>
+              <% end %>
+            </ul>
+            
+          </div>
+        </div>
+      </header>
+        
+      <% if flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+          <%= yield %>
+          
+        </body>
+  </html>

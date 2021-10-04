@@ -1,0 +1,115 @@
+<div class="background">
+<div class="container">
+  <h1>Pick Up News</h1>
+  <% if @user.like_area_id%>
+    <% @localimg.zip(@localtext).each do |localimg,localtext| %>
+    <div class="content_link">
+        <%= link_to localtext[:href] do %>
+        <div class="content_img">
+          <img src="<%= localimg.get_attribute('src') %>" width="150" height="150" >
+        </div>
+          <div class="content_text">
+          　<br><%= localtext.inner_text %>
+          </div>
+        <% end %>
+        </div>
+    <% end %>
+    
+ <% end %>
+  
+  <% if @user.like_life_id%>
+  <% @life_img.zip(@life_text,@life_url).each do |life_img,life_text,life_url| %>
+    <div class="content_link">
+        <%= link_to life_url[:href] do %>
+        　<div class="content_img">
+          　<img src="<%= life_img.get_attribute('src') %>" width="150" height="150" >
+          </div>
+          <div class="content_text">
+          　<br><%= life_text.inner_text %>
+          </div>
+        <% end %>
+        </div>
+    <% end %>
+  <% end %>
+  
+  <% if @user.like_science_id%>
+  <% @science_img.zip(@science_text,@science_url).each do |science_img,science_text,science_url| %>
+    <div class="content_link">
+        <%= link_to science_url[:href] do %>
+        <div class="content_img">
+          <img src="<%= science_img.get_attribute('src') %>" width="150" height="150" >
+        </div>
+        <div class="content_text">
+          　<br><%= science_text.inner_text %>
+        </div>
+        <% end %>
+        </div>
+    <% end %>
+    
+  <% end %>
+  
+  <% if @user.like_it_id%>
+  <% @it_img.zip(@it_text,@it_url).each do |it_img,it_text,it_url| %>
+    <div class="content_link">
+        <%= link_to it_url[:href] do %>
+        <div class="content_img">
+          <img src="<%= it_img.get_attribute('src') %>" width="150" height="150" >
+        </div>
+          <div class="content_text">
+          　<br><%= it_text.inner_text %>
+          </div>
+        <% end %>
+        </div>
+    <% end %>
+    
+  <% end %>
+  
+  <% if @user.like_sports_id%>
+  <% @sports_img.zip(@sports_text,@sports_url).each do |sports_img,sports_text,sports_url| %>
+    <div class="content_link">
+        <%= link_to sports_url[:href] do %>
+        <div class="content_img">
+          <img src="<%= sports_img.get_attribute('src') %>" width="150" height="150" >
+        </div>
+        <div class="content_text">
+          <br><%= sports_text.inner_text %>
+        </div>
+        <% end %>
+        </div>
+    <% end %>
+    
+  <% end %>
+  
+  <% if @user.like_entertainment_id%>
+  <% @entertainment_img.zip(@entertainment_text,@entertainment_url).each do |entertainment_img,entertainment_text,entertainment_url| %>
+    <div class="content_link">
+        <%= link_to entertainment_url[:href] do %>
+        　<div class="content_img">
+          　<img src="<%= entertainment_img.get_attribute('src') %>" width="150" height="150" >
+          </div>　
+          <div class="content_text">
+           　<br><%= entertainment_text.inner_text %>
+          </div>
+        <% end %>
+        </div>
+    <% end %>
+    
+  <% end %>
+  
+  <% if @user.like_economy_id%>
+  <% @economy_img.zip(@economy_text,@economy_url).each do |economy_img,economy_text,economy_url| %>
+    <div class="content_link">
+        <%= link_to economy_url[:href] do %>
+        　<div class="content_img">
+          　<img src="<%= economy_img.get_attribute('src') %>" width="150" height="150" >
+          </div>　
+          <div class="content_text">
+           <br><%= economy_text.inner_text %>
+          </div>
+        <% end %>
+        </div>
+    <% end %>
+    
+  <% end %>
+  </div>
+</div>

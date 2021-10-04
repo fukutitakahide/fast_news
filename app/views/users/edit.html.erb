@@ -1,0 +1,42 @@
+  <div class="form-header">
+    <h1>User Edit</h1>
+  </div>
+   <% if @error_message %>
+    <div class="form-error">
+     ＊<%= @error_message %>＊
+   <% end %>
+  </div>
+        
+  <div class="form-container">
+    <ul>
+      <li>
+        <%= form_for (@user) do |f| %>
+        <p><%= f.label :name %></p>
+        <%= f.text_field :name, class:'form_control' %>
+      </li> 
+      <li>
+        <p><%= f.label :password %></p>
+        <%= f.password_field :password,value: "#{@user.password}" , class: 'form_control' %>
+      </li>
+    </ul>
+    
+    <div class="check_box">
+        <%= hidden_field_tag 'user[like]' %>
+          <%= f.check_box :like_life_id %>
+          生活
+          <%= f.check_box :like_it_id %>
+          IT
+          <%= f.check_box :like_area_id %>
+          地域
+          <%= f.check_box :like_science_id %>
+          科学
+          <%= f.check_box :like_sports_id %>
+          スポーツ
+          <%= f.check_box :like_entertainment_id %>
+          エンタメ
+          <%= f.check_box :like_economy_id %>
+          経済
+    </div>
+      <p class="form-button"><%= f.submit "更新" , class: 'button-1' %></p>
+      <% end %>
+</div>
