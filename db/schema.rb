@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_23_201109) do
+ActiveRecord::Schema.define(version: 2020_08_22_041747) do
 
   create_table "fish", force: :cascade do |t|
     t.string "name"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_08_23_201109) do
     t.boolean "like_entertainment_id"
     t.boolean "like_economy_id"
     t.string "name"
-    t.string "password"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
