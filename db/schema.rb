@@ -10,18 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_22_041747) do
-
-  create_table "fish", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "scrapings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2020_08_17_065027) do
 
   create_table "users", force: :cascade do |t|
     t.boolean "like_area_id"
@@ -32,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_08_22_041747) do
     t.boolean "like_entertainment_id"
     t.boolean "like_economy_id"
     t.string "name"
-    t.string "email"
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

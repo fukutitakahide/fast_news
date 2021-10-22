@@ -92,13 +92,13 @@ class UsersController < ApplicationController
   
   def destroy
      @user = User.find_by(id: params[:id])
-     @us
-  privateer.destroy
+     @user.destroy
      session[:user_id] = nil
      flash[:notice] = "ユーザー情報を削除しました。"
      redirect_to("/")
   end
 
+  private
   def user_params
     params.require(:user).permit(:name,:password,:like_life_id, :like_it_id, :like_area_id, 
                                  :like_science_id, :like_sports_id, :like_entertainment_id, :like_economy_id)
