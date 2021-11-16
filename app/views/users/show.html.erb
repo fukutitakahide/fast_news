@@ -2,14 +2,14 @@
 <div class="container">
   <h1>Pick Up News</h1>
   <% if @user.like_area_id%>
-    <% @localimg.zip(@localtext).each do |localimg,localtext| %>
+    <% @local_img.zip(@local_text).each do |local_img,local_text| %>
     <div class="content_link">
-        <%= link_to localtext[:href] do %>
+        <%= link_to local_text[:href] do %>
         <div class="content_img">
-          <img src="<%= localimg.get_attribute('src') %>" width="150" height="150" >
+          <img src="<%= local_img.get_attribute('src') %>" width="150" height="150" >
         </div>
           <div class="content_text">
-          　<br><%= localtext.inner_text %>
+          　<br><%= local_text.inner_text %>
           </div>
         <% end %>
         </div>

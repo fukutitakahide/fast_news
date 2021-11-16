@@ -23,7 +23,23 @@
     </ul>
 
   <p>下記から興味のあるジャンルを一つ以上お選びください</p>
-  
+  <div class="check_box">
+      <%= hidden_field_tag 'user[like]' %>
+          <%= f.check_box :like_life_id %>
+          生活
+          <%= f.check_box :like_it_id %>
+          IT
+          <%= f.check_box :like_area_id %>
+          地域
+          <%= f.check_box :like_science_id %>
+          科学
+          <%= f.check_box :like_sports_id %>
+          スポーツ
+          <%= f.check_box :like_entertainment_id %>
+          エンタメ
+          <%= f.check_box :like_economy_id %>
+          経済
+        </div>
     
       <p class="form-button"><%= f.submit "新規登録" , class: 'button-1' %></p>
    <% end %>

@@ -1,7 +1,7 @@
 class CreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
-      t.boolean :like_area_id
+    t.boolean :like_area_id
       t.boolean :like_life_id
       t.boolean :like_science_id
       t.boolean :like_it_id
@@ -11,7 +11,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       
       t.string :name
       t.string :password
-      
+    
       t.timestamps
     end
   end
