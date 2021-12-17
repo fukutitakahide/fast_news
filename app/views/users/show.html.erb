@@ -1,6 +1,8 @@
 <div class="background">
 <div class="container">
-  <h1>Pick Up News</h1>
+  <div class="form-header">
+    <h1>Pick Up News</h1>
+  </div>
   <% if @user.like_area_id%>
     <% @local_img.zip(@local_text).each do |local_img,local_text| %>
     <div class="content_link">

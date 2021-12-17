@@ -6,6 +6,5 @@ class User < ApplicationRecord
   
   attr_accessor :like
   
-  
   validates :like, present_like: true 
 end

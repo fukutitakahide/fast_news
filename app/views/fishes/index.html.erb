@@ -1,24 +1,43 @@
 
 <div class="background">
-  <div class="container">
-    <h1>Top News</h1>
-    
-    
-  <% @element_img.zip(@element_text,@element_url).each do |element_img,element_text,element_url| %>
-    <div class="content_link">
-      <%= link_to element_url[:href] do %> 
-        <div class="content_img">
-           <img src="<%= element_img.get_attribute('src') %>"　width="150" height="150" >
-        </div>
-        
-        <div class="content_text">
-          <br><%= element_text.inner_text %>
-        </div>
-        
-        <% end %>
-  
+  <div class="container-index">
+    <div class="font-1">
+      <h1>必要な情報だけ目にしよう</h1>
     </div>
-        
-    <% end %>
+    <div class="font-2">
+      <p>fast_newsとは自分が興味のある、カテゴリーを選択しニュースにフィルタリングをかけるサービスです。</p>
+    </div> 
   </div>
 </div>
+
+<body><header>
+<!-- 　左側のサイトロゴ　-->
+<div class="header-logo">
+<h1>TEXT</h1>
+</div>
+<!--　ハンバーガーメニューの中身　 -->
+<nav class="header-nav">
+<ul class="nav-list">
+<li class="nav-item"><a href="#">Text</a></li>
+<li class="nav-item"><a href="#">Text</a></li>
+<li class="nav-item"><a href="#">Text</a></li>
+<li class="nav-item"><a href="#">Text</a></li>
+<li class="nav-item"><a href="#">Text</a></li>
+</ul>
+</nav>
+<!--　ハンバーガーメニューの表示　 -->
+<button class="burger-btn">
+<span class="bars">
+<span class="bar bar-top"></span>
+<span class="bar bar-mid"></span>
+<span class="bar bar-bottom"></span>
+</span>
+<span class="menu">menu</span>
+</button>
+<!-- 　メニューを開いた時の薄暗い背景　-->
+<span class="burger-musk"></span>
+</header>
+<main>
+<div class="fv"></div>
+</main>
+</body>

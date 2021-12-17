@@ -8,18 +8,18 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-  
       <header>
         <div class="header-nav">
           <div class="header-rogo">
-
-              <h1><%= link_to("Fast_News","/") %></h1>
-           
+            <% if session[:user_id] %>
+             <h1>Fast_News</h1>
+            <% else %>
+             <h1><%= link_to("Fast_News","/") %></h1>
+            <% end %>
           </div>
-          
          <div class="header-menu">
             <ul>
               <% if session[:user_id] %>
@@ -32,17 +32,26 @@
                 <li><%= link_to("ログイン","/login") %></li>
               <% end %>
             </ul>
-            
           </div>
         </div>
       </header>
-        
       <% if flash[:notice] %>
         <div class="flash">
           <%= flash[:notice] %>
         </div>
       <% end %>
           <%= yield %>
-          
+          <script type="text/javascript">$(function(){
+$(".burger-btn").on('click',function(){ //クリックしたら作動
+$('.bar').toggleClass('cross');　　//押すたびにcrossを付け外し
+$('.header-nav').toggleClass('open');
+$('.burger-musk').fadeToggle(300);
+$('body').toggleClass('noscroll');
+});
+});
+
+$(document).ready(function() {
+  $("p").text("jQuery稼働テスト(稼働中)");
+});</script>
         </body>
   </html>

@@ -1,6 +1,5 @@
 
 /* --- Common --- */
-
 a{
  text-decoration: none;
 }
@@ -15,11 +14,15 @@ body{
 
 .flash{
   text-align: center;
+  font-size: xxx-large;
+  background-color: teal;
 }
-
-/* --- Common END --- */
-
 /* --- Header --- */
+.header-nav{
+  display:flex;
+  justify-content: space-around;
+  background-color: black;
+}
 
 .header-rogo a{
     color:white;
@@ -27,38 +30,177 @@ body{
 }
 
 .header-rogo h1{
-    background-color:#00c4ff;
     height:100px;
     padding-top:20px;
     color: white;
-    padding-left: 100px;
 }
 
+.header-menu{
+  width:30%;
+}
+
+/*レスポンシブ*/
+@media(max-width:1250px){
+    .header-menu{
+  
+}
+}
+
+
 .header-menu ul{
-    display:flex;
-    justify-content: flex-end;
-    background-color: royalblue;
+  display:flex;
+}
+
+.header-menu ul li{
+  text-align:center;
 }
 
 .header-menu ul a{
     color:white;
-    padding-right: 20px;
+    line-height: 100px;
+    display: inline-block;
+    width:10vw;
 }
 
-/* --- Header END --- */
+.header-menu ul a:hover{
+  background-color:#DEB887;
+}
+
+/*レスポンシブ*/
+@media(max-width:750px){
+    .header-nav{
+    justify-content:flex-start;
+    }
+    .header-menu ul a{
+    width:25vw;
+}
+}
+
+.header-nav{
+list-style: none;
+position: fixed;
+top: 0;
+right: 0;
+width: 36.1vw;
+height: 100vh;
+background-color: rgba(34, 34, 34, 95);
+z-index: 2;
+text-align: center;
+padding: 120px 0 0;
+color: #fff;
+/*　透明にして表示を消しています　 */
+opacity: 0;　　　
+/*　X（右）方向に100％ずらして画面外に移動させています。　*/
+transform: translateX(100%);
+/* 　スライドで出てくる秒数と表示される秒数を指定　*/
+transition: transform .3s, opacity .3s;
+}
+.nav-item{
+margin-bottom: 30px;　
+}
+.nav-item:first-of-type{
+margin-bottom: 40px;
+}
+.nav-item:last-of-type{
+margin-bottom: 0;
+}
+.header-nav a{
+color: #fff;
+}
+/* ------------------------------
+BURGER
+---------------------------------*/
+.burger-btn{
+display: flex;　　　/* 　ハンバーガーメニューとmenuを横並びに　*/
+align-items: center;
+position: fixed;
+top: 38px;
+right: 4vw;
+z-index: 3;　/* 　他の指数よりも大きくして一番前面に表示　*/
+}
+/* 　ここでハンバーガーメニューの大きさや色を変更　*/
+.bar{
+display: block;
+background-color: #fff;
+height: 2px;
+width: 22px;
+border-radius: 1px;
+}
+/*　topとbottomをY方向に移動させて3本の線に。秒数はバツから戻る時の秒数　 */
+.bar-top{
+transform: translateY(-4px);
+transition: transform .3s;
+}
+.bar-bottom{
+transform: translateY(4px);
+transition: transform .3s;
+}
+.menu{
+display: block;
+font-size: 10px;
+text-transform: uppercase;
+color: #fff;
+font-weight: bold;
+margin-left: 5px;
+}
+/* ハンバーガーボタンを押した後のバツの記述
+rotateで角度を決める事ができるので好きなバツを作れます */
+.bar.cross.bar-top{
+transform: translateY(2px)rotate(30deg);
+transition: .3s;
+}
+.bar.cross.bar-mid{
+opacity: 0;
+transition: opacity .3s;
+}
+.bar.cross.bar-bottom{
+transform: translateY(-2px)rotate(-30deg);
+transition: .5s;
+}
+/* メニューが開いた時に画面をスクロールしないようにする記述。
+jQueryと組み合わせます。 */
+body.noscroll{
+overflow: hidden;
+}
+/* 　開いた時にX(0)で元の位置へ。
+openというクラスをjQueryでつけます。　*/
+.header-nav.open{
+transform: translateX(0);
+opacity: 1;
+transform: transform .3s, opacity .3s;
+}
+/* 　薄暗い画面の記述　*/
+.burger-musk{
+display: none;
+height: 100vh;
+width: 100vw;
+position: fixed;
+top: 0;
+left: 0;
+background-color: rgba(0, 0, 0, 0.5);
+z-index: 1;
+}
+/* 　buttonのリセットです。これをしないとどうなるか以下で紹介しますね。　*/
+button{
+background-color: transparent;
+border: none;
+cursor: pointer;
+outline: none;
+padding: 0;
+appearance: none;
+}
+transform: translateX(100%);
 
 
 /* --- Container --- */
-
 .container{
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    background-color: azure;
-    
+    background-color:white;
 }
 
-.container h1,.form-header h1{
+.form-header h1{
   font-size:3em;
   padding-top: 10px;
   text-align:center;
@@ -90,10 +232,61 @@ input[type=checkbox] {
 }
 
 .background{
-  background-image:url('english.jpg');
-  background-repeat: repeat;
+  background-image:url('news_paper.jpg');
+  min-height: 100vh;
+  background-size: cover;
+  position:relative;
 }
 
+.font-1{
+  position:absolute;
+  left: 20%;
+  top: 30%;
+}
+
+.font-2{
+  position:absolute;
+  left: 20%;
+  top: 50%;
+}
+
+.container-index h1{
+  font-size:4em;
+  font-weight:bold;
+  color: white;
+}
+
+.container-index p{
+  font-size:2em;
+  font-weight:bold;
+  color: white;
+}
+
+/*レスポンシブ*/
+@media(max-width:800px){
+    .font-1{
+    font-size: 60%;
+    top: 5%;
+    left: 5%;
+    }
+    .font-2{
+    font-size: 60%;
+    top: 15%;
+    left: 5%;
+}
+}
+@media(max-width:450px){
+    .font-1{
+    font-size: 40%;
+    top: 5%;
+    left: 5%;
+    }
+    .font-2{
+    font-size: 60%;
+    top: 25%;
+    left: 5%;
+}
+}
 /*index show*/
 
 .content_link{
@@ -119,11 +312,7 @@ input[type=checkbox] {
   width:150px;
   display:inline-block;
 }
-
-/*index show END*/
-
 /* new */
-
 .form_control{
   box-sizing: border-box;
   height: 30px;
@@ -171,9 +360,7 @@ label ,.form-container p,.check_box{
   font-size: larger;
   color: gray;
 }
-/* new END */
 
-/* --- Container END --- */
 
-/*----------- Login ------------*/
+
 
