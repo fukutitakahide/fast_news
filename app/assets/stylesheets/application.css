@@ -16,8 +16,17 @@ body{
   text-align: center;
   font-size: xxx-large;
   background-color: teal;
+  padding-top:130px;
 }
 /* --- Header --- */
+header{
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 .header-nav{
   display:flex;
   justify-content: space-around;
@@ -39,14 +48,6 @@ body{
   width:30%;
 }
 
-/*レスポンシブ*/
-@media(max-width:1250px){
-    .header-menu{
-  
-}
-}
-
-
 .header-menu ul{
   display:flex;
 }
@@ -66,6 +67,10 @@ body{
   background-color:#DEB887;
 }
 
+.menu,.menu-btn{
+  display:none;
+}
+
 /*レスポンシブ*/
 @media(max-width:750px){
     .header-nav{
@@ -73,124 +78,70 @@ body{
     }
     .header-menu ul a{
     width:25vw;
-}
-}
+    }
+    .header-menu{
+    display:none;  
+    }
+    
+    .menu-btn{
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eeeaea;
+    color:gray;
+    }
 
-.header-nav{
-list-style: none;
-position: fixed;
-top: 0;
-right: 0;
-width: 36.1vw;
-height: 100vh;
-background-color: rgba(34, 34, 34, 95);
-z-index: 2;
-text-align: center;
-padding: 120px 0 0;
-color: #fff;
-/*　透明にして表示を消しています　 */
-opacity: 0;　　　
-/*　X（右）方向に100％ずらして画面外に移動させています。　*/
-transform: translateX(100%);
-/* 　スライドで出てくる秒数と表示される秒数を指定　*/
-transition: transform .3s, opacity .3s;
-}
-.nav-item{
-margin-bottom: 30px;　
-}
-.nav-item:first-of-type{
-margin-bottom: 40px;
-}
-.nav-item:last-of-type{
-margin-bottom: 0;
-}
-.header-nav a{
-color: #fff;
-}
-/* ------------------------------
-BURGER
----------------------------------*/
-.burger-btn{
-display: flex;　　　/* 　ハンバーガーメニューとmenuを横並びに　*/
-align-items: center;
-position: fixed;
-top: 38px;
-right: 4vw;
-z-index: 3;　/* 　他の指数よりも大きくして一番前面に表示　*/
-}
-/* 　ここでハンバーガーメニューの大きさや色を変更　*/
-.bar{
-display: block;
-background-color: #fff;
-height: 2px;
-width: 22px;
-border-radius: 1px;
-}
-/*　topとbottomをY方向に移動させて3本の線に。秒数はバツから戻る時の秒数　 */
-.bar-top{
-transform: translateY(-4px);
-transition: transform .3s;
-}
-.bar-bottom{
-transform: translateY(4px);
-transition: transform .3s;
-}
-.menu{
-display: block;
-font-size: 10px;
-text-transform: uppercase;
-color: #fff;
-font-weight: bold;
-margin-left: 5px;
-}
-/* ハンバーガーボタンを押した後のバツの記述
-rotateで角度を決める事ができるので好きなバツを作れます */
-.bar.cross.bar-top{
-transform: translateY(2px)rotate(30deg);
-transition: .3s;
-}
-.bar.cross.bar-mid{
-opacity: 0;
-transition: opacity .3s;
-}
-.bar.cross.bar-bottom{
-transform: translateY(-2px)rotate(-30deg);
-transition: .5s;
-}
-/* メニューが開いた時に画面をスクロールしないようにする記述。
-jQueryと組み合わせます。 */
-body.noscroll{
-overflow: hidden;
-}
-/* 　開いた時にX(0)で元の位置へ。
-openというクラスをjQueryでつけます。　*/
-.header-nav.open{
-transform: translateX(0);
-opacity: 1;
-transform: transform .3s, opacity .3s;
-}
-/* 　薄暗い画面の記述　*/
-.burger-musk{
-display: none;
-height: 100vh;
-width: 100vw;
-position: fixed;
-top: 0;
-left: 0;
-background-color: rgba(0, 0, 0, 0.5);
-z-index: 1;
-}
-/* 　buttonのリセットです。これをしないとどうなるか以下で紹介しますね。　*/
-button{
-background-color: transparent;
-border: none;
-cursor: pointer;
-outline: none;
-padding: 0;
-appearance: none;
-}
-transform: translateX(100%);
+/*----------------------------
+* ハンバーガメニュー本体
+*----------------------------*/
+    .menu{
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #555;
+    }
+    .menu__item{
+      width: 100%;
+      height: auto;
+      padding: .5em 1em;
+      text-align: center;
+      color: #fff;
+      box-sizing: border-box;
+    }
+    .menu a{
+     color:white; 
+    }
+    .menu a:hover{
+    background-color:#DEB887;
+    }
+     
+/*----------------------------
+* アニメーション部分
+*----------------------------*/
 
+/* アニメーション前のメニューの状態 */
+    .menu{
+      transform: translateX(100vw);
+      transition: all .3s linear;
+    }
+    /* アニメーション後のメニューの状態 */
+    .menu.is-active{
+      transform: translateX(0);
+    }
+    }
 
 /* --- Container --- */
 .container{
@@ -202,7 +153,7 @@ transform: translateX(100%);
 
 .form-header h1{
   font-size:3em;
-  padding-top: 10px;
+  padding-top: 160px;;
   text-align:center;
   line-height:0.95em;
   font-weight:bold;
@@ -211,12 +162,12 @@ transform: translateX(100%);
 }
 
 .form-container{
-  margin-left:30%;
+  margin-left:40%;
   font-size: larger;
 }
 
 .form-container ul{
-  margin-top:50px;
+  margin-top:150px;
 }
 
 .form-container ul li,.form-container p{
@@ -240,14 +191,14 @@ input[type=checkbox] {
 
 .font-1{
   position:absolute;
-  left: 20%;
-  top: 30%;
+  left: 15%;
+  top: 40%;
 }
 
 .font-2{
   position:absolute;
-  left: 20%;
-  top: 50%;
+  left: 15%;
+  top: 70%;
 }
 
 .container-index h1{
@@ -266,26 +217,33 @@ input[type=checkbox] {
 @media(max-width:800px){
     .font-1{
     font-size: 60%;
-    top: 5%;
+    top: 50%;
     left: 5%;
     }
     .font-2{
     font-size: 60%;
-    top: 15%;
+    top: 65%;
     left: 5%;
-}
+    }
+    .header-rogo h1{
+     margin-left:20px; 
+    }
+    .form-container{
+    margin-left:20%;
+    font-size: larger;
+    }
 }
 @media(max-width:450px){
     .font-1{
     font-size: 40%;
-    top: 5%;
+    top: 35%;
     left: 5%;
     }
     .font-2{
     font-size: 60%;
-    top: 25%;
+    top: 45%;
     left: 5%;
-}
+    }
 }
 /*index show*/
 
@@ -299,7 +257,7 @@ input[type=checkbox] {
   color: dimgrey;
 }
 
-.content_text:hover {
+.content_text:hover{
   color: #fff;
   background: #00b5ad;
 }
@@ -356,11 +314,18 @@ label ,.form-container p,.check_box{
 }
 
 .form-error{
-  margin-left: 30%;
+  margin-left: 40%;
   font-size: larger;
   color: gray;
+  padding-top:10px;
 }
 
-
+/*レスポンシブ*/
+@media(max-width:800px){
+    .form-error{
+    margin-left: 20%;
+    padding-top:10px;
+    }
+}
 
 

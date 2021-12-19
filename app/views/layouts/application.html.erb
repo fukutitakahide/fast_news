@@ -7,8 +7,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
       <header>
@@ -20,19 +22,39 @@
              <h1><%= link_to("Fast_News","/") %></h1>
             <% end %>
           </div>
-         <div class="header-menu">
-            <ul>
-              <% if session[:user_id] %>
-                <li><%= link_to("マイページ","/users/#{@user.id}") %></li>
-                <li><%= link_to("ログアウト", "/logout",{method: :post}) %></li>
-                <li><%= link_to("登録内容変更", "/users/#{@user.id}/edit") %></li>
-                <li><%= link_to('登録内容削除', "/users/#{@user.id}", method: :delete) %></li>
-              <% else %>
-                <li><%= link_to("会員登録","/users/new") %></li>
-                <li><%= link_to("ログイン","/login") %></li>
-              <% end %>
-            </ul>
-          </div>
+          
+          <!--ハンバーガメニュー-->
+            <button type="button" class="menu-btn">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+        <div class="menu">
+          <% if session[:user_id] %>
+            <div class="menu__item"><%= link_to("マイページ","/users/#{@user.id}") %></div>
+            <div class="menu__item"><%= link_to("ログアウト", "/logout",{method: :post}) %></div>
+            <div class="menu__item"><%= link_to("登録内容変更", "/users/#{@user.id}/edit") %></div>
+            <div class="menu__item"><%= link_to('登録内容削除', "/users/#{@user.id}", method: :delete) %></div>
+          <% else %>
+            <div class="menu__item"><%= link_to("会員登録","/users/new") %></div>
+            <div class="menu__item"><%= link_to("ログイン","/login") %></div>
+          <% end %>
+        </div>
+   
+          
+          <!--ナビゲーションメニュー-->
+           <div class="header-menu">
+              <ul>
+                <% if session[:user_id] %>
+                  <li><%= link_to("マイページ","/users/#{@user.id}") %></li>
+                  <li><%= link_to("ログアウト", "/logout",{method: :post}) %></li>
+                  <li><%= link_to("登録内容変更", "/users/#{@user.id}/edit") %></li>
+                  <li><%= link_to('登録内容削除', "/users/#{@user.id}", method: :delete) %></li>
+                <% else %>
+                  <li><%= link_to("会員登録","/users/new") %></li>
+                  <li><%= link_to("ログイン","/login") %></li>
+                <% end %>
+              </ul>
+            </div>
+          
         </div>
       </header>
       <% if flash[:notice] %>
@@ -41,17 +63,16 @@
         </div>
       <% end %>
           <%= yield %>
-          <script type="text/javascript">$(function(){
-$(".burger-btn").on('click',function(){ //クリックしたら作動
-$('.bar').toggleClass('cross');　　//押すたびにcrossを付け外し
-$('.header-nav').toggleClass('open');
-$('.burger-musk').fadeToggle(300);
-$('body').toggleClass('noscroll');
-});
-});
-
-$(document).ready(function() {
-  $("p").text("jQuery稼働テスト(稼働中)");
-});</script>
+          <script>
+            $(function(){
+            $('.menu-btn').on('click', function(){
+              $('.menu').toggleClass('is-active');
+            });
+          }());
+          </script>
+           <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
         </body>
   </html>
