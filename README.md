@@ -2,6 +2,7 @@
 自分に興味のあるニュースだけ見られる。
 ニュースのフィルタリングができるサービスです。
 
+<img src="https://user-images.githubusercontent.com/55477664/146688970-3dc396ca-1de8-4f81-a8b5-72b3980e797f.jpg" width="150サイズ">
 ![top](https://user-images.githubusercontent.com/55477664/146688970-3dc396ca-1de8-4f81-a8b5-72b3980e797f.jpg)
 
 
