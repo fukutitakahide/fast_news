@@ -2,6 +2,7 @@
 __fast_news__
 ***
 **概要**  
+***
 自分に興味のあるニュースだけ見られる。  
 ニュースのフィルタリングができるサービスです。  
 
@@ -19,13 +20,13 @@ __fast_news__
 * Rails 5.2.6  
 * jquery  
 * rspec-rails  
-factory_bot_rails  
-(*)mechanize
+* factory_bot_rails  
+* mechanize
 
 **機能一覧**  
 ***
-*  ユーザー登録  
-*  スクレイピング（mechanize）  
+* ユーザー登録  
+* スクレイピング（mechanize）  
 
 **テスト**  
 ***
