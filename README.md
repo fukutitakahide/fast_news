@@ -1,6 +1,6 @@
 **サービス名**  
 ***
-fast_news  
+__fast_news__
 自分に興味のあるニュースだけ見られる。  
 ニュースのフィルタリングができるサービスです。  
 
@@ -15,11 +15,11 @@ fast_news
 
 **使用技術**
 ***
-+Rails 5.2.6  
-+jquery  
+*Rails 5.2.6  
+*jquery  
 *rspec-rails  
--factory_bot_rails  
--mechanize
+*factory_bot_rails  
+(*)mechanize
 
 **機能一覧**  
 ***
