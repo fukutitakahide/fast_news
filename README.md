@@ -15,11 +15,11 @@ fast_news
 
 **使用技術**
 ***
-*Rails 5.2.6  
-*jquery  
-*rspec-rails  
-*factory_bot_rails  
-*mechanize
+-Rails 5.2.6  
+-jquery  
+-rspec-rails  
+-factory_bot_rails  
+-mechanize
 
 **機能一覧**  
 ***
